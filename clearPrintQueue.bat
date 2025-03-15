@@ -1,0 +1,9 @@
+@echo off
+echo Stopping the Print Spooler service...
+net stop spooler
+echo Deleting all print jobs...
+del /Q /F /S "%systemroot%\System32\spool\PRINTERS\*.*"
+echo Restarting the Print Spooler service...
+net start spooler
+echo Print queue has been cleared.
+pause
